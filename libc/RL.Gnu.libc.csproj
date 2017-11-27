@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <Authors>Ringo Leese</Authors>
+    <AssemblyTitle>RL.Gnu.libc</AssemblyTitle>
+    <Description>
+      This currently very small project was made to wrap some Gnu libc functions to the dotnet-world.
+      This library doesn't work on Windows.
+    </Description>
+    <PackageTags></PackageTags>
+    <PackageReleaseNotes>Version 0.0.1</PackageReleaseNotes>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DocumentationFile>bin\Release\netstandard2.0\RL.Gnu.libc.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>
