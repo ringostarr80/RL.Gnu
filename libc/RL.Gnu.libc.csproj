@@ -3,19 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <VersionPrefix>0.0.1</VersionPrefix>
-    <Authors>Ringo Leese</Authors>
+    <Authors>Ringo</Authors>
+    <Title>RL.Gnu.libc</Title>
     <AssemblyTitle>RL.Gnu.libc</AssemblyTitle>
     <Description>
       This currently very small project was made to wrap some Gnu libc functions to the dotnet-world.
-      This library doesn't work on Windows.
     </Description>
-    <PackageTags></PackageTags>
+    <PackageTags>GNU libc glibc</PackageTags>
     <PackageReleaseNotes>Version 0.0.1</PackageReleaseNotes>
-    <PackageProjectUrl></PackageProjectUrl>
-    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/ringostarr80/RL.Gnu/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ringostarr80/RL.Gnu.git</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://</RepositoryUrl>
+    <RepositoryUrl>https://github.com/ringostarr80/RL.Gnu.git</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
