@@ -7,8 +7,36 @@ using NUnit.Framework;
 namespace libc_nunit
 {
     [TestFixture]
-    public class getloadavgTest
+    public class ProcessorResourcesTest
     {
+        [Test]
+        public void TestCLikeGetNumberOfProcessors()
+        {
+            var processors = libc.get_nprocs();
+            Assert.GreaterOrEqual(processors, 1);
+        }
+
+        [Test]
+        public void TestDotNetLikeGetNumberOfProcessors()
+        {
+            var processors = libc.GetNumberOfProcessors();
+            Assert.GreaterOrEqual(processors, 1);
+        }
+
+        [Test]
+        public void TestCLikeGetNumberOfProcessorsConfigured()
+        {
+            var processorsConfigured = libc.get_nprocs_conf();
+            Assert.GreaterOrEqual(processorsConfigured, 1);
+        }
+
+        [Test]
+        public void TestDotNetLikeGetNumberOfProcessorsConfigured()
+        {
+            var processorsConfigured = libc.GetNumberOfProcessorsConfigured();
+            Assert.GreaterOrEqual(processorsConfigured, 1);
+        }
+
         [Test]
         public void TestCLike()
         {

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <VersionPrefix>0.0.1</VersionPrefix>
+    <VersionPrefix>0.0.2</VersionPrefix>
     <Authors>Ringo</Authors>
     <Title>RL.Gnu.libc</Title>
     <AssemblyTitle>RL.Gnu.libc</AssemblyTitle>
@@ -10,7 +10,7 @@
       This currently very small project was made to wrap some Gnu libc functions to the dotnet-world.
     </Description>
     <PackageTags>GNU libc glibc</PackageTags>
-    <PackageReleaseNotes>Version 0.0.1</PackageReleaseNotes>
+    <PackageReleaseNotes>Version 0.0.2</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/ringostarr80/RL.Gnu/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ringostarr80/RL.Gnu.git</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

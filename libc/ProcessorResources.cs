@@ -6,8 +6,46 @@ namespace RL.Gnu
     /// <summary>
     /// This is a wrapper-class for several libc functions.
     /// </summary>
-    public class libc
+    public partial class libc
     {
+        private const string LIBC_FILE = "libc.so.6";
+
+        /// <summary>
+        /// The get_nprocs function returns the number of available processors.
+        /// </summary>
+        /// <returns>an integer of the number of processors.</returns>
+        public static int get_nprocs()
+        {
+            return libc_get_nprocs();
+        }
+
+        /// <summary>
+        /// The GetNumberOfProcessors function returns the number of available processors.
+        /// </summary>
+        /// <returns>an integer of the number of processors.</returns>
+        public static int GetNumberOfProcessors()
+        {
+            return libc_get_nprocs();
+        }
+
+        /// <summary>
+        /// The get_nprocs_conf function returns the number of processors the operating system configured.
+        /// </summary>
+        /// <returns>an integer of the number of processors configured.</returns>
+        public static int get_nprocs_conf()
+        {
+            return libc_get_nprocs_conf();
+        }
+
+        /// <summary>
+        /// The GetNumberOfProcessorsConfigured function returns the number of processors the operating system configured.
+        /// </summary>
+        /// <returns>an integer of the number of processors configured.</returns>
+        public static int GetNumberOfProcessorsConfigured()
+        {
+            return libc_get_nprocs_conf();
+        }
+
         /// <summary>
         /// The getloadavg() function returns the number of processes in the system run queue averaged over various periods of time.
         /// Up to nelem samples are retrieved and assigned to successive elements of loadavg[].
@@ -22,7 +60,7 @@ namespace RL.Gnu
                 throw new ArgumentOutOfRangeException("nelem", nelem, "\"nelem\" must be between 1 and 3!");
             }
             loadavg = new double[nelem];
-            return getloadavg(loadavg, nelem);
+            return libc_getloadavg(loadavg, nelem);
         }
 
         /// <summary>
@@ -32,7 +70,7 @@ namespace RL.Gnu
         public static void getloadavg(out double last1Minute)
         {
             var loadavg = new double[1];
-            var samples = getloadavg(loadavg, 1);
+            var samples = libc_getloadavg(loadavg, 1);
             if (samples == -1) {
                 throw new Exception("the load average is unobtainable!");
             }
@@ -48,7 +86,7 @@ namespace RL.Gnu
         public static void getloadavg(out double last1Minute, out double last5Minutes)
         {
             var loadavg = new double[2];
-            var samples = getloadavg(loadavg, 2);
+            var samples = libc_getloadavg(loadavg, 2);
             if (samples == -1) {
                 throw new Exception("the load average is unobtainable!");
             }
@@ -66,7 +104,7 @@ namespace RL.Gnu
         public static void getloadavg(out double last1Minute, out double last5Minutes, out double last15Minutes)
         {
             var loadavg = new double[3];
-            var samples = getloadavg(loadavg, 3);
+            var samples = libc_getloadavg(loadavg, 3);
             if (samples == -1) {
                 throw new Exception("the load average is unobtainable!");
             }
@@ -89,14 +127,20 @@ namespace RL.Gnu
                 throw new ArgumentOutOfRangeException("nelem", nelem, "\"nelem\" must be between 1 and 3!");
             }
             var loadavg = new double[nelem];
-            var samples = getloadavg(loadavg, nelem);
+            var samples = libc_getloadavg(loadavg, nelem);
             if (samples == -1) {
                 throw new Exception("the load average is unobtainable!");
             }
             return loadavg;
         }
 
-        [DllImport("libc.so.6")]
-        private static extern int getloadavg(double[] loadavg, int nelem);
+        [DllImport(LIBC_FILE, EntryPoint = "get_nprocs")]
+        private static extern int libc_get_nprocs();
+
+        [DllImport(LIBC_FILE, EntryPoint = "get_nprocs_conf")]
+        private static extern int libc_get_nprocs_conf();
+
+        [DllImport(LIBC_FILE, EntryPoint = "getloadavg")]
+        private static extern int libc_getloadavg(double[] loadavg, int nelem);
     }
 }
