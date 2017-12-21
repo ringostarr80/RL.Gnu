@@ -103,7 +103,7 @@ namespace libc_nunit
         public void TestWithLast1Minute()
         {
             double last1Minute;
-            libc.getloadavg(out last1Minute);
+            libc.GetLoadAverages(out last1Minute);
             Assert.GreaterOrEqual(last1Minute, 0);
         }
 
@@ -111,7 +111,7 @@ namespace libc_nunit
         public void TestWithLast5Minutes()
         {
             double last1Minute, last5Minutes;
-            libc.getloadavg(out last1Minute, out last5Minutes);
+            libc.GetLoadAverages(out last1Minute, out last5Minutes);
             Assert.GreaterOrEqual(last1Minute, 0);
             Assert.GreaterOrEqual(last5Minutes, 0);
         }
@@ -120,7 +120,7 @@ namespace libc_nunit
         public void TestWithLast15Minutes()
         {
             double last1Minute, last5Minutes, last15Minutes;
-            libc.getloadavg(out last1Minute, out last5Minutes, out last15Minutes);
+            libc.GetLoadAverages(out last1Minute, out last5Minutes, out last15Minutes);
             Assert.GreaterOrEqual(last1Minute, 0);
             Assert.GreaterOrEqual(last5Minutes, 0);
             Assert.GreaterOrEqual(last15Minutes, 0);

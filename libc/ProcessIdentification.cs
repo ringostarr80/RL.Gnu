@@ -9,7 +9,7 @@ namespace RL.Gnu
     public partial class libc
     {
 		/// <summary>
-		/// The getpid function returns the process ID of the current process. 
+		/// The <c>getpid</c> function returns the process ID of the current process. 
 		/// </summary>
 		/// <returns>an integer of the process ID.</returns>
 		public static int getpid()
@@ -18,7 +18,7 @@ namespace RL.Gnu
         }
 
 		/// <summary>
-		/// The GetPid function returns the process ID of the current process. 
+		/// The <c>GetPid</c> function returns the process ID of the current process. 
 		/// </summary>
 		/// <returns>an integer of the process ID.</returns>
 		public static int GetPid()
@@ -27,7 +27,16 @@ namespace RL.Gnu
         }
 
 		/// <summary>
-		/// The getppid function returns the process ID of the current process. 
+		/// The <c>GetProcessID</c> function returns the process ID of the current process. 
+		/// </summary>
+		/// <returns>an integer of the process ID.</returns>
+		public static int GetProcessID()
+        {
+            return libc_getpid();
+        }
+
+		/// <summary>
+		/// The <c>getppid</c> function returns the process ID of the current process. 
 		/// </summary>
 		/// <returns>an integer of the process ID.</returns>
 		public static int getppid()
@@ -36,10 +45,19 @@ namespace RL.Gnu
         }
 
 		/// <summary>
-		/// The GetPPid function returns the process ID of the current process. 
+		/// The <c>GetPPid</c> function returns the process ID of the current process. 
 		/// </summary>
 		/// <returns>an integer of the process ID.</returns>
 		public static int GetPPid()
+        {
+            return libc_getppid();
+        }
+
+		/// <summary>
+		/// The <c>GetParentProcessID</c> function returns the process ID of the current process. 
+		/// </summary>
+		/// <returns>an integer of the process ID.</returns>
+		public static int GetParentProcessID()
         {
             return libc_getppid();
         }

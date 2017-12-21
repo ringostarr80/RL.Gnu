@@ -11,7 +11,7 @@ namespace RL.Gnu
         private const string LIBC_FILE = "libc.so.6";
 
         /// <summary>
-        /// The get_nprocs function returns the number of available processors.
+        /// The <c>get_nprocs</c> function returns the number of available processors.
         /// </summary>
         /// <returns>an integer of the number of processors.</returns>
         public static int get_nprocs()
@@ -20,7 +20,7 @@ namespace RL.Gnu
         }
 
         /// <summary>
-        /// The GetNumberOfProcessors function returns the number of available processors.
+        /// The <c>GetNumberOfProcessors</c> function returns the number of available processors.
         /// </summary>
         /// <returns>an integer of the number of processors.</returns>
         public static int GetNumberOfProcessors()
@@ -29,7 +29,7 @@ namespace RL.Gnu
         }
 
         /// <summary>
-        /// The get_nprocs_conf function returns the number of processors the operating system configured.
+        /// The <c>get_nprocs_conf</c> function returns the number of processors the operating system configured.
         /// </summary>
         /// <returns>an integer of the number of processors configured.</returns>
         public static int get_nprocs_conf()
@@ -38,7 +38,7 @@ namespace RL.Gnu
         }
 
         /// <summary>
-        /// The GetNumberOfProcessorsConfigured function returns the number of processors the operating system configured.
+        /// The <c>GetNumberOfProcessorsConfigured</c> function returns the number of processors the operating system configured.
         /// </summary>
         /// <returns>an integer of the number of processors configured.</returns>
         public static int GetNumberOfProcessorsConfigured()
@@ -47,13 +47,14 @@ namespace RL.Gnu
         }
 
         /// <summary>
-        /// The getloadavg() function returns the number of processes in the system run queue averaged over various periods of time.
+        /// The <c>getloadavg</c> function returns the number of processes in the system run queue averaged over various periods of time.
         /// Up to nelem samples are retrieved and assigned to successive elements of loadavg[].
         /// The system imposes a maximum of 3 samples, representing averages over the last 1, 5, and 15 minutes, respectively.
         /// </summary>
         /// <param name="loadavg">a double array where to write the data.</param>
         /// <param name="nelem">how many elements to write (up to 3).</param>
         /// <returns>If the load average was unobtainable, -1 is returned; otherwise, the number of samples actually retrieved is returned.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown, if <paramref name="nelem"/> is not between 1 and 3.</exception>
         public static int getloadavg(out double[] loadavg, int nelem = 3)
         {
             if (nelem < 1 || nelem > 3) {
@@ -64,10 +65,11 @@ namespace RL.Gnu
         }
 
         /// <summary>
-        /// The getloadavg() function assigns the load average of the last minute.
+        /// The <c>GetLoadAverages</c> function assigns the load average of the last minute.
         /// </summary>
         /// <param name="last1Minute">writes out the load average of the last minute.</param>
-        public static void getloadavg(out double last1Minute)
+        /// <exception cref="System.Exception">Thrown, if the load averages could not been retrieved.</exception>
+        public static void GetLoadAverages(out double last1Minute)
         {
             var loadavg = new double[1];
             var samples = libc_getloadavg(loadavg, 1);
@@ -79,11 +81,12 @@ namespace RL.Gnu
         }
 
         /// <summary>
-        /// The getloadavg() function assigns the load average of the last and the last 5 minutes.
+        /// The <c>GetLoadAverages</c> function assigns the load average of the last and the last 5 minutes.
         /// </summary>
         /// <param name="last1Minute">writes out the load average of the last minute.</param>
         /// <param name="last5Minutes">writes out the load average of the last 5 minutes.</param>
-        public static void getloadavg(out double last1Minute, out double last5Minutes)
+        /// <exception cref="System.Exception">Thrown, if the load averages could not been retrieved.</exception>
+        public static void GetLoadAverages(out double last1Minute, out double last5Minutes)
         {
             var loadavg = new double[2];
             var samples = libc_getloadavg(loadavg, 2);
@@ -96,12 +99,13 @@ namespace RL.Gnu
         }
 
         /// <summary>
-        /// The getloadavg() function assigns the load average of the last, the last 5 and the last 15 minutes.
+        /// The <c>GetLoadAverages</c> function assigns the load average of the last, the last 5 and the last 15 minutes.
         /// </summary>
         /// <param name="last1Minute">writes out the load average of the last minute.</param>
         /// <param name="last5Minutes">writes out the load average of the last 5 minutes.</param>
         /// <param name="last15Minutes">writes out the load average of the last 15 minutes.</param>
-        public static void getloadavg(out double last1Minute, out double last5Minutes, out double last15Minutes)
+        /// <exception cref="System.Exception">Thrown, if the load averages could not been retrieved.</exception>
+        public static void GetLoadAverages(out double last1Minute, out double last5Minutes, out double last15Minutes)
         {
             var loadavg = new double[3];
             var samples = libc_getloadavg(loadavg, 3);
@@ -115,12 +119,14 @@ namespace RL.Gnu
         }
 
         /// <summary>
-        /// The GetLoadAverages() function returns a double array of processes in the system run queue averaged over various periods of time.
-        /// Up to nelem samples are retrieved and returned as a double array.
+        /// The <c>GetLoadAverages</c> function returns a double array of processes in the system run queue averaged over various periods of time.
+        /// Up to <paramref name="nelem"/> samples are retrieved and returned as a double array.
         /// The system imposes a maximum of 3 samples, representing averages over the last 1, 5, and 15 minutes, respectively.
         /// </summary>
         /// <param name="nelem">how many elements to write (up to 3).</param>
         /// <returns>a double array with the load averages.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown, if <paramref name="nelem"/> is not between 1 and 3.</exception>
+        /// <exception cref="System.Exception">Thrown, if the load averages could not been retrieved.</exception>
         public static double[] GetLoadAverages(int nelem = 3)
         {
             if (nelem < 1 || nelem > 3) {
