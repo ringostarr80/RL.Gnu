@@ -41,10 +41,6 @@ namespace libc_console
 			var realPath = libc.RealPath("bar.txt");
 			Console.WriteLine("realpath of 'bar.txt' => '" + realPath + "'");
 
-			string resolved;
-			libc.realpath("bar.txt", out resolved);
-			Console.WriteLine("realpath2 of 'bar.txt' => resolved: '" + resolved + "'");
-
 			File.Delete("bar.txt");
 			File.Delete("foo.txt");
 		}
