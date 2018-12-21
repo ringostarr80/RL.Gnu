@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 using RL.Gnu;
 
@@ -28,6 +29,24 @@ namespace libc_console
 
 			var memory = pageSize * physPages / 1024 / 1024;
 			Console.WriteLine("memory: {0}MB", memory);
-        }
+
+			File.WriteAllText("foo.txt", "foo content");
+			libc.SymbolicLink("foo.txt", "bar.txt");
+			var canonicalizedFilename = libc.CanonicalizeFileName("bar.txt");
+			Console.WriteLine("canonicalize_file_name of 'bar.txt' => '" + canonicalizedFilename + "'");
+
+			var link = libc.ReadLink("bar.txt");
+			Console.WriteLine("readlink(bar.txt) => '" + link + "'");
+
+			var realPath = libc.RealPath("bar.txt");
+			Console.WriteLine("realpath of 'bar.txt' => '" + realPath + "'");
+
+			string resolved;
+			libc.realpath("bar.txt", out resolved);
+			Console.WriteLine("realpath2 of 'bar.txt' => resolved: '" + resolved + "'");
+
+			File.Delete("bar.txt");
+			File.Delete("foo.txt");
+		}
     }
 }
