@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <VersionPrefix>0.0.5</VersionPrefix>
+    <TargetFramework>net6.0</TargetFramework>
+    <VersionPrefix>0.1.0</VersionPrefix>
     <Authors>Ringo</Authors>
     <Title>RL.Gnu.libc</Title>
     <AssemblyTitle>RL.Gnu.libc</AssemblyTitle>
@@ -10,8 +10,8 @@
       This currently very small project was made to wrap some Gnu libc functions to the dotnet-world.
     </Description>
     <PackageTags>GNU libc glibc</PackageTags>
-    <PackageReleaseNotes>Version 0.0.5</PackageReleaseNotes>
-    <PackageLicenseUrl>https://github.com/ringostarr80/RL.Gnu/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReleaseNotes>Version 0.1.0</PackageReleaseNotes>
+    <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/ringostarr80/RL.Gnu.git</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <DocumentationFile>bin\Release\netstandard2.0\RL.Gnu.libc.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\net6.0\RL.Gnu.libc.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

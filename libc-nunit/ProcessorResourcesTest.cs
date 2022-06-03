@@ -1,7 +1,6 @@
 using System;
 
 using RL.Gnu;
-using NUnit;
 using NUnit.Framework;
 
 namespace libc_nunit
