@@ -4,6 +4,7 @@
 ![Workflow: CodeQL](https://img.shields.io/github/actions/workflow/status/ringostarr80/RL.Gnu/codeql-analysis.yml?branch=main)
 ![NuGet](https://img.shields.io/nuget/v/RL.Gnu.libc)
 ![Version](https://img.shields.io/github/v/tag/ringostarr80/RL.Gnu?sort=semver)
+[![codecov](https://codecov.io/gh/ringostarr80/RL.Gnu/branch/main/graph/badge.svg?token=31AGL12HSR)](https://codecov.io/gh/ringostarr80/RL.Gnu)
 
 ## Intention
 This currently very small project was made to wrap some Gnu libc functions to the dotnet-world.
