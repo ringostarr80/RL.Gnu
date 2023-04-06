@@ -10,6 +10,13 @@
 This currently very small project was made to wrap some Gnu libc functions to the dotnet-world.
 This library doesn't work on Windows.
 
+## Build and publish nupkg file
+
+```sh
+dotnet pack --configuration=Release
+dotnet nuget push bin/Release/RL.Gnu.libc.<version>.nupkg --api-key=<api-key>
+```
+
 ## Usage
 to get the load averages:
 
