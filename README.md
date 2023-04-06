@@ -1,9 +1,9 @@
 # RL.Gnu.libc Wrapper
 
 [![License: CC0](https://img.shields.io/github/license/ringostarr80/RL.Gnu.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+![Workflow: CodeQL](https://img.shields.io/github/actions/workflow/status/ringostarr80/RL.Gnu/codeql-analysis.yml?branch=main)
 ![NuGet](https://img.shields.io/nuget/v/RL.Gnu.libc)
 ![Version](https://img.shields.io/github/v/tag/ringostarr80/RL.Gnu?sort=semver)
-![Workflow: CodeQL](https://img.shields.io/github/workflow/status/ringostarr80/RL.Gnu/CodeQL)
 
 ## Intention
 This currently very small project was made to wrap some Gnu libc functions to the dotnet-world.
