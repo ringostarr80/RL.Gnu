@@ -2,7 +2,7 @@
 <package>
 	<metadata>
 		<id>RL.Gnu.libc</id>
-		<version>0.1.1</version>
+		<version>0.2.0</version>
 		<title>RL.Gnu.libc</title>
 		<authors>Ringo Leese</authors>
 		<owners>Ringo Leese</owners>
@@ -11,16 +11,16 @@
 		<defaultPushSource>https://www.nuget.org/api/v2/package</defaultPushSource>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>This is a very basic wrapper for the GNU libc library.</description>
-		<releaseNotes>Changed target Framework to .NET 5.0.</releaseNotes>
-		<copyright>Copyright 2022</copyright>
+		<releaseNotes>Changed target Framework to .NET 6.0.</releaseNotes>
+		<copyright>Copyright 2023</copyright>
 		<tags>gnu libc</tags>
 		<dependencies>
-			<group targetFramework="net5.0"/>
+			<group targetFramework="net6.0"/>
 		</dependencies>
 	</metadata>
 	<files>
 		<file src="..\LICENSE" target="LICENSE"/>
-		<file src="bin\Release\net5.0\RL.Gnu.libc.dll" target="lib\net5.0"/>
-		<file src="bin\Release\net5.0\RL.Gnu.libc.xml" target="lib\net5.0"/>
+		<file src="bin\Release\net6.0\RL.Gnu.libc.dll" target="lib\net6.0"/>
+		<file src="bin\Release\net6.0\RL.Gnu.libc.xml" target="lib\net6.0"/>
 	</files>
 </package>
