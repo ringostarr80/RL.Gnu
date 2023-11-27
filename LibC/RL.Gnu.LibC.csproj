@@ -28,9 +28,9 @@
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <DocumentationFile>bin/Release/net6.0/RL.Gnu.libc.xml</DocumentationFile>
-    <DocumentationFile>bin/Release/net7.0/RL.Gnu.libc.xml</DocumentationFile>
-    <DocumentationFile>bin/Release/net8.0/RL.Gnu.libc.xml</DocumentationFile>
+    <DocumentationFile>bin/Release/net6.0/RL.Gnu.LibC.xml</DocumentationFile>
+    <DocumentationFile>bin/Release/net7.0/RL.Gnu.LibC.xml</DocumentationFile>
+    <DocumentationFile>bin/Release/net8.0/RL.Gnu.LibC.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

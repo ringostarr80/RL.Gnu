@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\libc\RL.Gnu.libc.csproj" />
+    <ProjectReference Include="..\LibC\RL.Gnu.LibC.csproj" />
   </ItemGroup>
 
   <ItemGroup>

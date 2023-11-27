@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RL.Gnu.libc", "libc\RL.Gnu.libc.csproj", "{64BC89CC-EA70-4FD2-82C2-D36795DB533E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RL.Gnu.LibC", "LibC\RL.Gnu.LibC.csproj", "{64BC89CC-EA70-4FD2-82C2-D36795DB533E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libc-console", "libc-console\libc-console.csproj", "{CF88517C-6ABB-4F2C-BC89-663D3FDC0DDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibC-console", "LibC-console\LibC-console.csproj", "{CF88517C-6ABB-4F2C-BC89-663D3FDC0DDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libc-nunit", "libc-nunit\libc-nunit.csproj", "{39313C16-36E2-43F4-95A5-C31352D81CA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibC-nunit", "LibC-nunit\LibC-nunit.csproj", "{39313C16-36E2-43F4-95A5-C31352D81CA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
