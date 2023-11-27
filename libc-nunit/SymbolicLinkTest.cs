@@ -33,7 +33,7 @@ namespace libc_nunit
         public void TestDotNetLikeSymbolicLink()
         {
 			var symLinkResult = this.CreateFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
-			Assert.AreEqual(0, symLinkResult);
+			Assert.That(0 == symLinkResult);
 
 			this.DeleteFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
 		}
@@ -42,9 +42,9 @@ namespace libc_nunit
 		public void TestDotNetLikeReadLink()
 		{
 			var symLinkResult = this.CreateFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
-			Assert.AreEqual(0, symLinkResult);
+			Assert.That(0 == symLinkResult);
 			var link = libc.ReadLink(this._symbolicLink);
-			Assert.AreEqual("foo.txt", link);
+			Assert.That("foo.txt" == link);
 
 			this.DeleteFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
 		}
@@ -53,9 +53,9 @@ namespace libc_nunit
 		public void TestDotNetLikeCanonicalizeFileName()
 		{
 			var symLinkResult = this.CreateFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
-			Assert.AreEqual(0, symLinkResult);
+			Assert.That(0 == symLinkResult);
 			var canonicalizedFilename = libc.CanonicalizeFileName(this._symbolicLink);
-			Assert.IsTrue(canonicalizedFilename.Contains("foo.txt"));
+			Assert.That(canonicalizedFilename.Contains("foo.txt"));
 
 			this.DeleteFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
 		}
@@ -64,9 +64,9 @@ namespace libc_nunit
 		public void TestDotNetLikeRealPath()
 		{
 			var symLinkResult = this.CreateFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
-			Assert.AreEqual(0, symLinkResult);
+			Assert.That(0 == symLinkResult);
 			var canonicalizedFilename = libc.RealPath(this._symbolicLink);
-			Assert.IsTrue(canonicalizedFilename.Contains("foo.txt"));
+			Assert.That(canonicalizedFilename.Contains("foo.txt"));
 
 			this.DeleteFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
 		}

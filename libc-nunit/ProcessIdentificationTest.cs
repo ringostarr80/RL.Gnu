@@ -10,28 +10,28 @@ namespace libc_nunit
         public void TestCLikeGetPid()
         {
             var pid = libc.getpid();
-			Assert.Greater(pid, 1);
+			Assert.That(pid > 1);
         }
 
 		[Test]
         public void TestDotNetLikeGetPid()
         {
             var pid = libc.GetPid();
-			Assert.Greater(pid, 1);
+			Assert.That(pid > 1);
         }
 
         [Test]
         public void TestCLikeGetPPid()
         {
             var ppid = libc.getppid();
-            Assert.Greater(ppid, 1);
+            Assert.That(ppid > 1);
         }
 
 		[Test]
         public void TestDotNetLikeGetPPid()
         {
             var ppid = libc.GetPPid();
-            Assert.Greater(ppid, 1);
+            Assert.That(ppid > 1);
         }
     }
 }
