@@ -5,7 +5,7 @@ namespace RL.Gnu
 	/// <summary>
     /// This is a wrapper-class for several libc functions.
     /// </summary>
-    public partial class libc
+    public partial class LibC
 	{
 		/// <summary>
 		/// The <c>getpagesize</c> function returns the page size of the process. This value is fixed for the runtime of the process but can vary in different runs of the application. 

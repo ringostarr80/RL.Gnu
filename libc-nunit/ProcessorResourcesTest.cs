@@ -11,28 +11,28 @@ namespace libc_nunit
         [Test]
         public void TestCLikeGetNumberOfProcessors()
         {
-            var processors = libc.get_nprocs();
+            var processors = LibC.get_nprocs();
             Assert.That(processors >= 1);
         }
 
         [Test]
         public void TestDotNetLikeGetNumberOfProcessors()
         {
-            var processors = libc.GetNumberOfProcessors();
+            var processors = LibC.GetNumberOfProcessors();
             Assert.That(processors >= 1);
         }
 
         [Test]
         public void TestCLikeGetNumberOfProcessorsConfigured()
         {
-            var processorsConfigured = libc.get_nprocs_conf();
+            var processorsConfigured = LibC.get_nprocs_conf();
             Assert.That(processorsConfigured >= 1);
         }
 
         [Test]
         public void TestDotNetLikeGetNumberOfProcessorsConfigured()
         {
-            var processorsConfigured = libc.GetNumberOfProcessorsConfigured();
+            var processorsConfigured = LibC.GetNumberOfProcessorsConfigured();
             Assert.That(processorsConfigured >= 1);
         }
 
@@ -40,7 +40,7 @@ namespace libc_nunit
         public void TestCLike()
         {
             double[] loadavg;
-            var samples = libc.getloadavg(out loadavg, 3);
+            var samples = LibC.getloadavg(out loadavg, 3);
             Assert.That(3 == samples);
             Assert.That(3 == loadavg.Length);
             Assert.That(loadavg[0] >= 0);
@@ -52,7 +52,7 @@ namespace libc_nunit
         public void TestCLikeWithDefault()
         {
             double[] loadavg;
-            var samples = libc.getloadavg(out loadavg);
+            var samples = LibC.getloadavg(out loadavg);
             Assert.That(3 == samples);
             Assert.That(3 == loadavg.Length);
             Assert.That(loadavg[0] >= 0);
@@ -64,7 +64,7 @@ namespace libc_nunit
         public void TestCLikeWith1Element()
         {
             double[] loadavg;
-            var samples = libc.getloadavg(out loadavg, 1);
+            var samples = LibC.getloadavg(out loadavg, 1);
             Assert.That(1 == samples);
             Assert.That(1 == loadavg.Length);
             Assert.That(loadavg[0] >= 0);
@@ -73,7 +73,7 @@ namespace libc_nunit
         [Test]
         public void TestDotNetLike()
         {
-            var loadavg = libc.GetLoadAverages(3);
+            var loadavg = LibC.GetLoadAverages(3);
             Assert.That(3 == loadavg.Length);
             Assert.That(loadavg[0] >= 0);
             Assert.That(loadavg[1] >= 0);
@@ -83,7 +83,7 @@ namespace libc_nunit
         [Test]
         public void TestDotNetLikeWithDefault()
         {
-            var loadavg = libc.GetLoadAverages();
+            var loadavg = LibC.GetLoadAverages();
             Assert.That(3 == loadavg.Length);
             Assert.That(loadavg[0] >= 0);
             Assert.That(loadavg[1] >= 0);
@@ -93,7 +93,7 @@ namespace libc_nunit
         [Test]
         public void TestDotNetLikeWith1Element()
         {
-            var loadavg = libc.GetLoadAverages(1);
+            var loadavg = LibC.GetLoadAverages(1);
             Assert.That(1 == loadavg.Length);
             Assert.That(loadavg[0] >= 0);
         }
@@ -102,7 +102,7 @@ namespace libc_nunit
         public void TestWithLast1Minute()
         {
             double last1Minute;
-            libc.GetLoadAverages(out last1Minute);
+            LibC.GetLoadAverages(out last1Minute);
             Assert.That(last1Minute >= 0);
         }
 
@@ -110,7 +110,7 @@ namespace libc_nunit
         public void TestWithLast5Minutes()
         {
             double last1Minute, last5Minutes;
-            libc.GetLoadAverages(out last1Minute, out last5Minutes);
+            LibC.GetLoadAverages(out last1Minute, out last5Minutes);
             Assert.That(last1Minute >= 0);
             Assert.That(last5Minutes >= 0);
         }
@@ -119,7 +119,7 @@ namespace libc_nunit
         public void TestWithLast15Minutes()
         {
             double last1Minute, last5Minutes, last15Minutes;
-            libc.GetLoadAverages(out last1Minute, out last5Minutes, out last15Minutes);
+            LibC.GetLoadAverages(out last1Minute, out last5Minutes, out last15Minutes);
             Assert.That(last1Minute >= 0);
             Assert.That(last5Minutes >= 0);
             Assert.That(last15Minutes >= 0);
@@ -130,17 +130,17 @@ namespace libc_nunit
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => {
                 double[] loadavg;
-                var samples = libc.getloadavg(out loadavg, 0);
+                var samples = LibC.getloadavg(out loadavg, 0);
             });
             Assert.Throws<ArgumentOutOfRangeException>(() => {
                 double[] loadavg;
-                var samples = libc.getloadavg(out loadavg, 4);
+                var samples = LibC.getloadavg(out loadavg, 4);
             });
             Assert.Throws<ArgumentOutOfRangeException>(() => {
-                libc.GetLoadAverages(0);
+                LibC.GetLoadAverages(0);
             });
             Assert.Throws<ArgumentOutOfRangeException>(() => {
-                libc.GetLoadAverages(4);
+                LibC.GetLoadAverages(4);
             });
         }
     }

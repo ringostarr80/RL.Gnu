@@ -20,7 +20,7 @@ namespace libc_nunit
 				File.Delete(symbolicLink);
 			}
 			File.WriteAllText(filename, "foo content");
-			return libc.SymbolicLink(filename, symbolicLink);
+			return LibC.SymbolicLink(filename, symbolicLink);
 		}
 
 		private void DeleteFileAndSymbolicLink(string filename, string symbolicLink)
@@ -43,7 +43,7 @@ namespace libc_nunit
 		{
 			var symLinkResult = this.CreateFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
 			Assert.That(0 == symLinkResult);
-			var link = libc.ReadLink(this._symbolicLink);
+			var link = LibC.ReadLink(this._symbolicLink);
 			Assert.That("foo.txt" == link);
 
 			this.DeleteFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
@@ -54,7 +54,7 @@ namespace libc_nunit
 		{
 			var symLinkResult = this.CreateFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
 			Assert.That(0 == symLinkResult);
-			var canonicalizedFilename = libc.CanonicalizeFileName(this._symbolicLink);
+			var canonicalizedFilename = LibC.CanonicalizeFileName(this._symbolicLink);
 			Assert.That(canonicalizedFilename.Contains("foo.txt"));
 
 			this.DeleteFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
@@ -65,7 +65,7 @@ namespace libc_nunit
 		{
 			var symLinkResult = this.CreateFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);
 			Assert.That(0 == symLinkResult);
-			var canonicalizedFilename = libc.RealPath(this._symbolicLink);
+			var canonicalizedFilename = LibC.RealPath(this._symbolicLink);
 			Assert.That(canonicalizedFilename.Contains("foo.txt"));
 
 			this.DeleteFileAndSymbolicLink(this._tmpFilename, this._symbolicLink);

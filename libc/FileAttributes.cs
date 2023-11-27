@@ -5,7 +5,7 @@ namespace RL.Gnu
 	/// <summary>
 	/// This is a wrapper-class for several libc functions.
 	/// </summary>
-	public partial class libc
+	public partial class LibC
 	{
 		/// <summary>
 		/// The chmod function sets the access permission bits for the file named by filename to mode.

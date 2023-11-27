@@ -6,7 +6,7 @@ namespace RL.Gnu
     /// <summary>
     /// This is a wrapper-class for several libc functions.
     /// </summary>
-    public partial class libc
+    public partial class LibC
     {
         private const string LIBC_FILE = "libc.so.6";
 

@@ -9,42 +9,42 @@ namespace libc_nunit
 		[Test]
         public void TestCLikeGetPageSize()
         {
-            var pagesize = libc.getpagesize();
+            var pagesize = LibC.getpagesize();
 			Assert.That(pagesize > 128);
         }
 
         [Test]
         public void TestDotNetLikeGetPageSize()
         {
-            var pagesize = libc.GetPageSize();
+            var pagesize = LibC.GetPageSize();
 			Assert.That(pagesize > 128);
         }
 
         [Test]
         public void TestCLikeGetPhysPages()
         {
-            var physPages = libc.get_phys_pages();
+            var physPages = LibC.get_phys_pages();
 			Assert.That(physPages > 128);
         }
 
         [Test]
         public void TestDotNetLikeGetPhysPages()
         {
-            var physPages = libc.GetPhysicalPages();
+            var physPages = LibC.GetPhysicalPages();
 			Assert.That(physPages > 128);
         }
 
          [Test]
         public void TestCLikeGetAvPhysPages()
         {
-            var physPages = libc.get_avphys_pages();
+            var physPages = LibC.get_avphys_pages();
 			Assert.That(physPages > 128);
         }
 
         [Test]
         public void TestDotNetLikeGetAvPhysPages()
         {
-            var physPages = libc.GetAvailablePhysicalPages();
+            var physPages = LibC.GetAvailablePhysicalPages();
 			Assert.That(physPages > 128);
         }
     }

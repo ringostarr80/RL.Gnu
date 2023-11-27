@@ -5,7 +5,7 @@ namespace RL.Gnu
     /// <summary>
     /// This is a wrapper-class for several libc functions.
     /// </summary>
-    public partial class libc
+    public partial class LibC
     {
 		/// <summary>
 		/// The <c>getpid</c> function returns the process ID of the current process. 

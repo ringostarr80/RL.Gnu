@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -7,7 +6,7 @@ namespace RL.Gnu
 	/// <summary>
 	/// This is a wrapper-class for several libc functions.
 	/// </summary>
-	public partial class libc
+	public partial class LibC
 	{
 		/// <summary>
 		/// The <c>canonicalize_file_name</c> function returns the absolute name of the file named by name which contains no ., .. components nor any repeated path separators (/) or symlinks. The result is passed back as the return value of the function in a block of memory allocated with malloc. If the result is not used anymore the memory should be freed with a call to free.
