@@ -22,7 +22,7 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet }}.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore --framework=net${{ matrix.dotnet }}
     - name: Build
       run: dotnet build --framework=net${{ matrix.dotnet }} --no-restore
     - name: Test
