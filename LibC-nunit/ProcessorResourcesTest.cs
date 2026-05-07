@@ -39,8 +39,7 @@ namespace libc_nunit
         [Test]
         public void TestCLike()
         {
-            double[] loadavg;
-            var samples = LibC.getloadavg(out loadavg, 3);
+            var samples = LibC.getloadavg(out double[] loadavg, 3);
             Assert.That(samples, Is.EqualTo(3));
             Assert.That(loadavg.Length, Is.EqualTo(3));
             Assert.That(loadavg[0], Is.GreaterThanOrEqualTo(0));
@@ -51,8 +50,7 @@ namespace libc_nunit
         [Test]
         public void TestCLikeWithDefault()
         {
-            double[] loadavg;
-            var samples = LibC.getloadavg(out loadavg);
+            var samples = LibC.getloadavg(out double[] loadavg);
             Assert.That(samples, Is.EqualTo(3));
             Assert.That(loadavg.Length, Is.EqualTo(3));
             Assert.That(loadavg[0], Is.GreaterThanOrEqualTo(0));
@@ -63,8 +61,7 @@ namespace libc_nunit
         [Test]
         public void TestCLikeWith1Element()
         {
-            double[] loadavg;
-            var samples = LibC.getloadavg(out loadavg, 1);
+            var samples = LibC.getloadavg(out double[] loadavg, 1);
             Assert.That(samples, Is.EqualTo(1));
             Assert.That(loadavg.Length, Is.EqualTo(1));
             Assert.That(loadavg[0], Is.GreaterThanOrEqualTo(0));
@@ -101,16 +98,14 @@ namespace libc_nunit
         [Test]
         public void TestWithLast1Minute()
         {
-            double last1Minute;
-            LibC.GetLoadAverages(out last1Minute);
+            LibC.GetLoadAverages(out double last1Minute);
             Assert.That(last1Minute, Is.GreaterThanOrEqualTo(0));
         }
 
         [Test]
         public void TestWithLast5Minutes()
         {
-            double last1Minute, last5Minutes;
-            LibC.GetLoadAverages(out last1Minute, out last5Minutes);
+            LibC.GetLoadAverages(out double last1Minute, out double last5Minutes);
             Assert.That(last1Minute, Is.GreaterThanOrEqualTo(0));
             Assert.That(last5Minutes, Is.GreaterThanOrEqualTo(0));
         }
@@ -118,8 +113,7 @@ namespace libc_nunit
         [Test]
         public void TestWithLast15Minutes()
         {
-            double last1Minute, last5Minutes, last15Minutes;
-            LibC.GetLoadAverages(out last1Minute, out last5Minutes, out last15Minutes);
+            LibC.GetLoadAverages(out double last1Minute, out double last5Minutes, out double last15Minutes);
             Assert.That(last1Minute, Is.GreaterThanOrEqualTo(0));
             Assert.That(last5Minutes, Is.GreaterThanOrEqualTo(0));
             Assert.That(last15Minutes, Is.GreaterThanOrEqualTo(0));
@@ -128,20 +122,18 @@ namespace libc_nunit
         [Test]
         public void TestOutOfRangeException()
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => {
-                double[] loadavg;
-                var samples = LibC.getloadavg(out loadavg, 0);
-            });
-            Assert.Throws<ArgumentOutOfRangeException>(() => {
-                double[] loadavg;
-                var samples = LibC.getloadavg(out loadavg, 4);
-            });
-            Assert.Throws<ArgumentOutOfRangeException>(() => {
+            Assert.Throws<ArgumentOutOfRangeException>((Action)(() => {
+                var samples = LibC.getloadavg(out double[] loadavg, 0);
+            }));
+            Assert.Throws<ArgumentOutOfRangeException>((Action)(() => {
+                var samples = LibC.getloadavg(out double[] loadavg, 4);
+            }));
+            Assert.Throws<ArgumentOutOfRangeException>((Action)(() => {
                 LibC.GetLoadAverages(0);
-            });
-            Assert.Throws<ArgumentOutOfRangeException>(() => {
+            }));
+            Assert.Throws<ArgumentOutOfRangeException>((Action)(() => {
                 LibC.GetLoadAverages(4);
-            });
+            }));
         }
     }
 }
